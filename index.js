@@ -74,13 +74,5 @@ const data = {
       "1970-1":{"date":"1970-1","plan_value":0,"C3:WON":null,"C4:WON":null,"C5:WON":null,"total_value":0,"nadbavka":0}},"plan_value":0}}
     const managerDate = "2020-5";
     
-    const arr = Object.entries(data);
-    const helpArr =[];
-    const result = arr.forEach(item=>{
-    const obj = item[1].data; 
-   for(key in obj){    
-        if(key===managerDate) helpArr.push(obj[key].plan_value);         
-    }
-   });
-    const res = helpArr.reduce((acc,el)=>acc+=el,0);
-    console.log(res);
+    const test = Object.values(data).reduce((accum, { data}) =>accum += data[managerDate].plan_value, 0);
+    console.log(test)
